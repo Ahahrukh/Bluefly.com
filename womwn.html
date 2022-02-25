@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="menStyle.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div id="nav">
+        <div id="hrmc">
+            <div id="trmc">
+              <img src="https://cdn.shopify.com/s/files/1/0248/3473/6191/files/BLUEFLY-LOGO-11-20.png?v=1574278243" alt="img1">
+            </div>
+            <div id="rrmc">
+              <div><img src="https://cdn-icons-png.flaticon.com/128/49/49213.png?ga=GA1.1.422146839.1645784256" alt=""></div>
+              <div><img src="https://img.icons8.com/ios/2x/gender-neutral-user.png" alt=""></div>
+              <div onclick="hdfc()"><img src="https://img.icons8.com/ios/2x/shopping-bag--v3.gif" alt=""></div>
+            </div>
+        </div>
+      <div class="jb">
+              <div>SHOES</div>
+              <div>HANDBAGS & ACCESSORIES</div>
+              <div>DESIGNER</div>
+              <div onclick="hdfa()">WOMEN</div>
+              <div onclick="hdfb()">MEN</div>
+              <div>SUNGLASSES</div>
+              <div>JEWELERY & WATCHES</div>
+              <div>UNDER $50</div>
+              <div>BEAUTY</div>
+      </div>
+          
+      
+      <h4 id="h4">CLEARENCE</h4>
+
+
+
+    <!-- }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] -->
+    <div id="trew">
+        <select onchange="sortitems()" id="sorter">
+        <option value="">Sort Price</option>
+        <option value="h2l">High to low</option>
+        <option value="l2h">low to high</option>
+        </select>
+        
+        <select id="colorF" onchange="colorFilter()">
+            <option>Select Color</option>
+            <option value="Multicolor">BEIGE</option>
+            <option value="Red">RED</option>
+            <option value="Blue">BLUE</option>
+            <option value="Orange">ORANGE</option>
+            <option value="Green">GREEN</option>
+            <option value="Grey">GREY</option>
+            <option value="Pink">PINK</option>
+            <option value="White">WHITE</option>
+            <option value="Orange">ORANGE</option>
+            <option value="Black">BLACK</option>
+            <option value="Brown">BROWN</option>
+        </select>
+        <select id="brandF" onchange="brandFilter()">
+            <option value="">Select Brand</option>
+            <option value="dFAME">dFAME</option>
+            <option value="STATUS">STATUS</option>
+            <option value="PEPE_JEANS">PEPE JEANS</option>
+            <option value="INDIAN">INDIAN</option>
+            <option value="CELIO">CELIO</option>
+            <option value="KAPPA">KAPPA</option>
+            <option value="JACK">JACK</option>
+            <option value="CODE">CODE</option>
+            <option value="PROLINE">PROLINE</option>
+            <option value="COLORPLUS">COLORPLUS</option>
+            <option value="UNITED">UNITED</option>
+            <option value="AMERICAN">AMERICAN</option>
+            <option value="DENIMIZE">DENIMIZE</option>
+            <option value="FORCA">FORCA</option>
+            <option value="VAN">VAN HUIESEN</option>
+            <option value="ARROW">ARROW</option>
+            <option value="SMILEYWORLD">SMILEYWORLD</option>
+            <option value="FAME">FAME</option>
+            <option value="PARX">PARX</option>
+        </select>
+    </div>
+    <div id="container"></div>
+    <!-- ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]] -->
+
+    <div id="trb">
+        <div id="aontainer">
+            <div class="tara"><h4>ABOUT US</h4>
+            <div>
+                <p class="p">Contact Us</p>
+                <p class="p">Frequntely Asked Questions</p>
+                <p class="p">Shipping & Returns</p>
+                <p class="p">Pre-Owened Guide</p>
+            </div>
+            </div>
+            <div>
+                <p class="p">Sellon Bluefly</p>
+                <p class="p">Privecy Policy</p>
+                <p class="p">Terms & Condition</p>
+            </div>
+            <div>
+                <h4 id="abc">SIGN UP AND SAVE</h4>
+                <P class="p">Subscribe to get exclusive offers on designer brands</P>
+                
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-facebook"></a> 
+            </div>
+            
+    </div>
+    <img src="https://cdn.shopify.com/s/files/1/0248/3473/6191/files/Untitled_2_.png_5_x104@2x.png?v=1620852820" alt="">
+    <p class="p">© 2022 Bluefly 1998-2020 BLUEFLY.COM OR ITS AFFILIATES ALL RIGHTS RESERVED.</p>   
+</body>
+</html>
+<script src="women.js"></script>
+<script>
+ localStorage.setItem("mensData",JSON.stringify(womensData));
+
+var womensData = JSON.parse(localStorage.getItem("mensData"));
+ var cartArr=JSON.parse(localStorage.getItem("cartitem")) || []; 
+ function colorFilter(){
+    //womensData = JSON.parse(localStorage.getItem("mensData"));
+      var selected = document.querySelector("#colorF").value;
+      var filteredList = womensData.filter(function(elem){
+        return(elem.color==selected)
+      });
+      console.log(filteredList);
+      chek();
+    }
+ chek();
+function chek(){
+    womensData.map(function(elem){
+        
+        var div=document.createElement("div");
+        var div1=document.createElement("div");
+        var div2=document.createElement("div");
+        var div3=document.createElement("div");
+        var div4=document.createElement("div");
+        var img=document.createElement("img");
+        img.setAttribute("src",elem.image_url);
+        var p1=document.createElement("p");
+        p1.innerText=elem.price
+        var p2=document.createElement("p");
+        p2.innerText=elem.sprice;
+        var p3=document.createElement("p");
+        p3.innerText=elem.explain;
+        var p4=document.createElement("p");
+        p4.innerText=elem.discount;
+        var button=document.createElement("button");
+        button.innerText="Add to cart";
+        button.addEventListener("click",function(){
+            addCart(elem);
+            
+        })
+        div4.append(p1,p2,p4);
+        div3.append(p3);
+        div2.append(img);
+        div1.append(button);
+        div.append(div2,div3,div4,div1);
+        document.querySelector("#container").append(div)
+    })
+}
+
+function addCart(elem){
+    elem.quant=1;
+    cartArr.push(elem)
+   localStorage.setItem("cartitem",JSON.stringify(cartArr))
+}
+//document.write(womensData.length)
+function sortitems(){
+    var sorting =document.getElementById("sorter").value;
+    if(sorting=="h2l"){
+        womensData.sort(function(a,b){
+            return b.price-a.price;
+        }) ;
+        chek();
+    
+    }
+}
+
+    function hdfa(){
+         window.location.href="womwn.html"
+     }
+     function hdfb(){
+         window.location.href="men.html"
+     }
+     function hdfc(){
+         window.location.href="cartitem.html"
+     }
+
+</script>

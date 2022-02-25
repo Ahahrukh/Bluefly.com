@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+         #container{
+            width: 25%;
+            height: 300px;
+            background-color: rgb(50, 42, 58);
+            margin: auto;
+            margin-top: 60px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        #form{
+            display: grid;
+            width: 90%;
+            gap: 40px;
+            margin: auto;
+            margin-bottom: 50px;
+           
+          
+        }
+        #form>input{
+            height: 35px;
+            border-radius: 8px;
+            text-align: center;
+
+        }
+        #form>input:last-child{
+            width: 100px;
+            margin: auto;
+            border-radius: 8px;
+        }
+        #form>input:first-child{
+            margin-top: 60px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="hrmc">
+            <div id="trmc">
+              <img src="https://cdn.shopify.com/s/files/1/0248/3473/6191/files/BLUEFLY-LOGO-11-20.png?v=1574278243" alt="img1">
+            </div>
+            <div id="rrmc">
+              <div><img src="https://cdn-icons-png.flaticon.com/128/49/49213.png?ga=GA1.1.422146839.1645784256" alt=""></div>
+              <div><img src="https://img.icons8.com/ios/2x/gender-neutral-user.png" alt=""></div>
+              <div onclick="hdfc()"><img src="https://img.icons8.com/ios/2x/shopping-bag--v3.gif" alt=""></div>
+            </div>
+        </div>
+      <div class="jb">
+              <div>SHOES</div>
+              <div>HANDBAGS & ACCESSORIES</div>
+              <div>DESIGNER</div>
+              <div onclick="hdfa()">WOMEN</div>
+              <div onclick="hdfb()">MEN</div>
+              <div>SUNGLASSES</div>
+              <div>JEWELERY & WATCHES</div>
+              <div>UNDER $50</div>
+              <div>BEAUTY</div>
+      </div>
+          
+      
+      <h4 id="h4">CLEARENCE</h4>
+      </div>
+   <!-- <h1>loginpage</h1>  -->
+  <div id="container">
+    
+        <form action="" id="form">
+            <input type="text" placeholder="Emter your email" id="email">
+            <input type="password" placeholder="Enter password" id="pass">
+            <input type="submit" placeholder="Login" onclick="golgol()">
+        </form>
+   
+  </div>
+  <div id="trb">
+    <div id="aontainer">
+        <div class="tara"><h4>ABOUT US</h4>
+        <div>
+            <p class="p">Contact Us</p>
+            <p class="p">Frequntely Asked Questions</p>
+            <p class="p">Shipping & Returns</p>
+            <p class="p">Pre-Owened Guide</p>
+        </div>
+        </div>
+        <div>
+            <p class="p">Sellon Bluefly</p>
+            <p class="p">Privecy Policy</p>
+            <p class="p">Terms & Condition</p>
+        </div>
+        <div>
+            <h4 id="abc">SIGN UP AND SAVE</h4>
+            <P class="p">Subscribe to get exclusive offers on designer brands</P>
+            
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-facebook"></a> 
+        </div>
+        
+</div>
+<img src="https://cdn.shopify.com/s/files/1/0248/3473/6191/files/Untitled_2_.png_5_x104@2x.png?v=1620852820" alt="">
+<p class="p">© 2022 Bluefly 1998-2020 BLUEFLY.COM OR ITS AFFILIATES ALL RIGHTS RESERVED.</p>   
+</body>
+</html>
+<script>
+    var regdUser = JSON.parse(localStorage.getItem("signupDetail"));
+    console.log(regdUser);
+    document.querySelector("#form").addEventListener("submit",myFunction);
+    var form=document.querySelector("#form");
+    console.log(form)
+    // var email=document.querySelector("#email").value
+    // var pass=document.querySelector("#pass").value
+    function myFunction(){
+        var email=document.querySelector("#email").value
+    var pass=document.querySelector("#pass").value
+     console.log(email,pass)
+      for(var i=0;i<regdUser.length;i++){
+         if(regdUser.Email===email && regdUser[i].Pass===pass ){
+             alert("Login Sucsussfull ")
+            
+         }else{
+             alert("login failed")
+         }
+     }
+    
+    }
+    function golgol(){
+        window.location.href="home.html"
+    }
+    function hdfa(){
+         window.location.href="womwn.html"
+     }
+     function hdfb(){
+         window.location.href="men.html"
+     }
+     function hdfc(){
+         window.location.href="cartitem.html"
+     }
+</script>

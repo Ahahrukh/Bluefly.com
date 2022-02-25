@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(180, 178, 175);
+        }
+        #container{
+            display: flex;
+            gap: 1%;
+            margin-left: 10%;
+        }
+        #container>div:nth-child(2){
+            width: 49%;
+            background-color: rgb(104, 103, 105);
+        }
+        #container>div:nth-child(1){
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            width: 40%;
+            height: 700px;
+            
+            background-color: blanchedalmond;
+            justify-content: center;
+        }
+        #container>div>div{
+            display: flex;
+            gap: 80px;
+            margin-left: 100px;
+            
+        }
+        #container>div>div>div>img{
+            height: 60px;
+            width: 60px;
+        }
+        
+        #container>div>div>div{
+            display:grid;
+            margin-top: 40px;
+        }
+        form>input,#cvv,select{
+            height: 30px;
+        }
+        .hz{
+            margin-top: 20px
+        
+        }
+        .checkbox{
+            display: flex;
+            gap: 5px;
+        
+        }
+        .checkbox>p{
+            margin-top:-0.6px;
+            
+        }
+        button{
+            margin-left: 100px;
+            background-color: yellow;
+            width: 180px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+       <div>
+           <div>
+                 <div>
+                    <span><label for="">Debit Card</label> </span>
+                    <input type="radio" id="radio-button" name="pay">
+                    <img src="https://cdn-icons-png.flaticon.com/128/633/633611.png" alt="">
+                    
+                 </div>
+                <div>
+                    <span><label for="radio-button">Cash On Delivery</label></span> 
+                <input type="radio" id="radio-button" name="pay">
+                 <img src="https://icon-library.com/images/cash-on-delivery-icon/cash-on-delivery-icon-7.jpg" alt="">
+                 
+                </div>
+           </div>
+           <div><h2>Card Details:</h2></div>
+           <div>
+            <form  id="main-form">
+                <label for="cd">Card Number</label><br>
+                <input type="number" id="cd" placeholder="Enter your 16 digit card number"><br>
+                <label for="ncd">Name on Card</label><br>
+                <input type="text" id="ncd" placeholder="Name on card">
+                <div>
+                    <label for="expy">Card expire date</label> <br>
+                    <select class="expd" name="Month" aria-placeholder="MM" id="expy">
+                        <option>Month</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+            
+                    <select class="expd" name="Year" aria-placeholder="YYYY" >
+                        <option>Year</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2031">2031</option>
+                        <option value="2032">2032</option>
+                        <option value="2033">2033</option>
+                        <option value="2034">2034</option>
+                        <option value="2035">2035</option>
+                        <option value="2036">2036</option>
+                        <option value="2037">2037</option>
+                        <option value="2038">2038</option>
+                        <option value="2039">2039</option>
+                    </select> <br> <br>
+                    <label for="cvv">Enter CVV No.</label> <br>
+                    <input type="number" placeholder="CVV" class="cv" id="cvv">
+                </div>
+            
+                <div class="hz">
+                    <div class="checkbox">
+                   <input type="checkbox" class="exp"><p>Save this card for a faster checkout experience </p>
+                </div>
+                <div class="checkbox">
+                        <input type="checkbox" class="exp">
+                        <p>Is billing address the same as shipping address?</p>
+                </div>
+                </div>
+               </div>
+        </form>
+        <button onclick="mfunction()">Proceed to OTP</button>
+       </div>
+       <div id="sontainer"></div>                                                                                                                                            
+    </div>
+</body>
+</html>
+<script>
+    function mfunction(){
+        alert("OTP is Sent")
+        window.location.href="OTP.html"
+    }
+    var cartArr=JSON.parse(localStorage.getItem("cartitem")) || [];
+mapping();
+function mapping(){
+    cartArr.map(function(elem){
+    var div= document.createElement("div");
+    div.setAttribute("class","jra")
+    var div1=document.createElement("div");
+    
+    var div2=document.createElement("div");
+    var div3=document.createElement("div");
+    var div4=document.createElement("div");
+    var img=document.createElement("img");
+    img.setAttribute("src",elem.image_url);
+    var h3=document.createElement("h5");
+    h3.innerText=elem.explain;
+    var p=document.createElement("p");
+    p.innerText=elem.price;
+    var p1=document.createElement("p");
+    p1.innerText="Quantity:"+elem.quant;
+    div1.append(img);
+    div2.append(h3);
+    div3.append(p);
+    div4.append(p1);
+    div.append(div1,div2,div3,div4);
+    var hr=document.createElement("hr");
+    document.querySelector("#sontainer").append(div,hr)
+    })
+}
+var x=localStorage.getItem("Total")
+document.querySelector("#sontainer+h2").innerText="Total Amount:"+x;
+// document.querySelector("#form").addEventListener("click",jfunction);
+
+</script>

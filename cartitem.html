@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cartStyle.css">
+    
+</head>
+<body>
+    
+    <hr>
+    <h1>OFFER! Apply 'MASAI028' and Get Upto 30% Instant Discount</h1>
+    <hr>
+    <div class="para">
+        <div id="container"></div>
+        <div>
+           <div>
+               <h2>Item</h2>
+               <h2 id="item">0</h2>
+               
+               <h2>Total</h2>
+               <h2 id="total">Rs.0</h2>
+               <input type="text" placeholder="Enter Promo code" id="promo">
+               <input type="submit"  name="Apply" id="tr" onclick="discount(x)">
+               <h2>Amount Payable</h2>
+               <h2 id="payble">Rs.0</h2>
+               
+           </div>
+          <button id="tw" onclick="ebFunction()">Chek Out</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var cartArr=JSON.parse(localStorage.getItem("cartitem")) || [];
+    mapping();
+    function mapping(){
+        cartArr.map(function(elem,index){
+        var btn=document.createElement("button")
+        btn.innerText="Add +1"
+        btn.addEventListener("click",function(){
+           increase(index)
+        })
+        var div=document.createElement("div");
+        var div1=document.createElement("div");
+        var div2=document.createElement("div");
+        var div3=document.createElement("div");
+        var div4=document.createElement("div");
+        var img=document.createElement("img");
+        img.setAttribute("src",elem.image_url);
+        var p1=document.createElement("p");
+        p1.innerText=elem.price
+        var p2=document.createElement("p");
+        p2.innerText=elem.sprice;
+        var p3=document.createElement("p");
+        p3.innerText=elem.explain;
+        var p4=document.createElement("p");
+        p4.innerText=elem.discount;
+        var p5=document.createElement("p");
+        p5.innerText=elem.quant;
+        p5.setAttribute("id","trye")
+        // var button=document.createElement("button");
+        // button.innerText="Remove";
+        // button.addEventListener("click",function(){
+        //     removeCart(elem);
+        // })
+        div4.append(p1,p2,p4,p5);
+        div3.append(p3);
+        div2.append(img);
+        div1.append(btn);
+        div.append(div2,div3,div4,div1);
+        document.querySelector("#container").append(div)
+        });
+    }
+    
+   
+   function total(){
+    var total=cartArr.reduce(function(acc,elem){
+    return acc+(elem.price*elem.quant);
+    },0)
+    document.getElementById("total").innerText=total;
+    document.getElementById("payble").innerText=total;
+    localStorage.setItem("Total",total);
+    
+    }
+    var x=total();
+    total();
+
+    document.getElementById("item").innerText=cartArr.length;
+
+
+    function discount(){
+        var count=0
+        var x=localStorage.getItem("Total")
+        var promo= document.getElementById("promo").value;
+        if(promo==="MASAI028"  && count<=1){
+        document.getElementById("payble").innerText=(x-(x*0.3))
+        count++;
+        alert("Code Sucsussfully accepted")
+        }else if(count>1){
+            alert("You have applied")
+        }
+        else{
+        alert("Invalid Code")
+        
+        }
+    }
+
+    function increase(index){
+        // console.log(index)
+        var x=cartArr[index].quant++;
+        document.getElementById("trye").innerText=x;
+        total();
+    }
+   function ebFunction(){
+       window.location.href="shiping.html"
+   }
+    
+    </script>

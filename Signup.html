@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <style> 
+    #form{
+            /* align-items: center; */
+        display: grid;
+        width: 20%;
+        margin: auto;
+        margin-top: 60px;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    #email,#username,#pass,#number{
+        height: 40px;
+        text-align: center;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 8px;
+    }
+    #form>input:nth-child(5){
+        width:100px;
+        height: 30px;
+        background-color: rgb(206, 209, 5);
+        margin: auto;
+        border-radius: 8px;
+    }
+    /* #herry{
+        width: 30%;
+        height: 60%;
+        background-color: yellow;
+    } */
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="hrmc">
+            <div id="trmc">
+              <img src="https://cdn.shopify.com/s/files/1/0248/3473/6191/files/BLUEFLY-LOGO-11-20.png?v=1574278243" alt="img1">
+            </div>
+            <div id="rrmc">
+              <div><img src="https://cdn-icons-png.flaticon.com/128/49/49213.png?ga=GA1.1.422146839.1645784256" alt=""></div>
+              <div><img src="https://img.icons8.com/ios/2x/gender-neutral-user.png" alt=""></div>
+              <div onclick="hdfc()"><img src="https://img.icons8.com/ios/2x/shopping-bag--v3.gif" alt=""></div>
+            </div>
+        </div>
+      <div class="jb">
+              <div>SHOES</div>
+              <div>HANDBAGS & ACCESSORIES</div>
+              <div>DESIGNER</div>
+              <div onclick="hdfa()">WOMEN</div>
+              <div onclick="hdfb()">MEN</div>
+              <div>SUNGLASSES</div>
+              <div>JEWELERY & WATCHES</div>
+              <div>UNDER $50</div>
+              <div>BEAUTY</div>
+      </div>
+          
+      
+      <h4 id="h4">CLEARENCE</h4>
+      </div>
+    <div id="herry">
+        <form id="form">
+            <input type="text" placeholder="Enter your user name" id="username">
+            <input type="text" placeholder="Enter your email" id="email">
+            <input type="password" placeholder="Enter your pasword" id="pass">
+            <input type="text" placeholder="Enter your number" id="number">
+            <input type="submit" placeholder="Login">
+        </form>
+    </div>
+    <div id="trb">
+        <div id="aontainer">
+            <div class="tara"><h4>ABOUT US</h4>
+            <div>
+                <p class="p">Contact Us</p>
+                <p class="p">Frequntely Asked Questions</p>
+                <p class="p">Shipping & Returns</p>
+                <p class="p">Pre-Owened Guide</p>
+            </div>
+            </div>
+            <div>
+                <p class="p">Sellon Bluefly</p>
+                <p class="p">Privecy Policy</p>
+                <p class="p">Terms & Condition</p>
+            </div>
+            <div>
+                <h4 id="abc">SIGN UP AND SAVE</h4>
+                <P class="p">Subscribe to get exclusive offers on designer brands</P>
+                
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-facebook"></a> 
+            </div>
+            
+    </div>
+    <img src="https://cdn.shopify.com/s/files/1/0248/3473/6191/files/Untitled_2_.png_5_x104@2x.png?v=1620852820" alt="">
+    <p class="p">© 2022 Bluefly 1998-2020 BLUEFLY.COM OR ITS AFFILIATES ALL RIGHTS RESERVED.</p>   
+</body>
+</html>
+<script>
+document.querySelector("#form").addEventListener("submit",myfunction);
+
+var signupArr=JSON.parse(localStorage.getItem("signupDetail")) || [];
+function myfunction(){
+    
+    event.preventDefault();
+    var signupobj={
+        Email:document.getElementById("email").value,
+        Username:document.getElementById("username").value,
+        Pass:document.getElementById("pass").value,
+        Nomber:document.getElementById("number").value
+    };
+    signupArr.push(signupobj);
+    //console.log(signupArr)
+    localStorage.setItem("signupDetail",JSON.stringify(signupArr))
+    document.querySelector("input[type='submit']")
+    .addEventListener("click",function(){
+        window.location.href="login.html"
+    })
+}
+function hdfa(){
+         window.location.href="womwn.html"
+     }
+     function hdfb(){
+         window.location.href="men.html"
+     }
+     function hdfc(){
+         window.location.href="cartitem.html"
+     }
+</script>

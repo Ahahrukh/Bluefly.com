@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    #container{
+        width: 32%;
+        text-align: center;
+        justify-content: center;
+        background-color: #948b6e;
+        padding: 20px;
+        color:  rgb(48, 30, 6);
+        font-size: 25px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: auto;
+        border-radius: 10px;
+        margin-top: 40px;
+    }
+    input{
+        width: 40%;
+        height: 40px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    
+<div id="container">
+    
+    <form>
+        <h3>OTP verification</h3>
+    <p>OTP for the transaction bearing Card Details XXXX XXXX 1234 has been sent to the registered mobile mobile number XXXXXXX0787.</p>
+    <input class="otp" placeholder="Enter OTP">
+    <br> <br>
+    <input id="submit" type="submit" placeholder="Proceed To Payment">
+    </form>
+    <div>
+        <p>Havent Received Click here</p>
+        <a href="OTP.html">Resend</a>
+    </div>
+    
+
+
+</div>
+
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", proceed);
+
+    function proceed(event){
+        event.preventDefault();
+        var otp = document.querySelector(".otp").value;
+        //console.log(otp);
+        if(otp.length==="0" || otp !== "1234"){
+            alert("Incorrect OTP");
+        }else{
+            alert("Verifying Payment");
+            window.location.href = "shoplast.html";
+        }
+    }
+</script>

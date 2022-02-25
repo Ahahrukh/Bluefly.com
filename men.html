@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="menStyle.css">
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<script src="Men.js"></script>
+<script>
+
+chek();
+
+function chek(){
+    mensData.map(function(elem){
+        var div=document.createElement("div");
+        var div1=document.createElement("div");
+        var div2=document.createElement("div");
+        var div3=document.createElement("div");
+        var div4=document.createElement("div");
+        var img=document.createElement("img");
+        img.setAttribute("src",elem.image_url);
+        var p1=document.createElement("p");
+        p1.innerText=elem.price
+        var p2=document.createElement("p");
+        p2.innerText=elem.sprice;
+        var p3=document.createElement("p");
+        p3.innerText=elem.explain;
+        var p4=document.createElement("p");
+        p4.innerText=elem.discount;
+        var button=document.createElement("button");
+        button.innerText="Add to cart"
+        div4.append(p1,p2,p4);
+        div3.append(p3);
+        div2.append(img);
+        div1.append(button);
+        div.append(div2,div3,div4,div1);
+        document.querySelector("#container").append(div)
+    })
+}
+
+</script>
